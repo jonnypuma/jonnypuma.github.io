@@ -270,7 +270,6 @@ const PROJECTS = [
       ["skin.aeon.fuse/aeon/home_06_search.webp", "Home: Search", "Home"],
       ["skin.aeon.fuse/aeon/home_08_power.webp", "Home: Power", "Home"],
       ["skin.aeon.fuse/aeon/home_09_planner.webp", "Home: Planner", "Home"],
-      ["skin.aeon.fuse/aeon/home_10_weather.webp", "Home: Weather", "Home"],
       ["skin.aeon.fuse/aeon/home_11_favourites.webp", "Home: Favourites", "Home"],
       ["skin.aeon.fuse/aeon/favourites_episode.webp", "Home: Favourites, the favourite episode focused with its spotlight", "Home"],
       ["skin.aeon.fuse/aeon/home_12_pictures.webp", "Home: Pictures", "Home"],
