@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jonnypuma · Kodi add-ons and media apps</title>
+<meta name="description" content="Kodi add-ons and Docker apps by jonnypuma: the Aeon Fuse skin, Skippy, Trickplay Preview, Subtitle and Audio Enforcer, Curator, Video Analyzer and more.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" href="assets/service.skippy/icon.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/skin.aeon.fuse/shot01.webp">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top" id="top">
+  <a class="brand" href="#/" aria-label="jonnypuma, home">
+    <span class="brand-mark" aria-hidden="true"></span>jonnypuma
+  </a>
+  <nav aria-label="Sections">
+    <a href="#aeon">Aeon Fuse</a>
+    <a href="#skippy">Skippy</a>
+    <a href="#curator">Curator</a>
+    <a href="#kodi">Kodi add-ons</a>
+    <a href="#docker">Docker apps</a>
+    <a href="#install">Install</a>
+    <a class="nav-gh" href="https://github.com/jonnypuma" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ================= HOME ================= -->
+  <div id="home">
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="hero-text">
+        <p class="eyebrow">Kodi skin · Kodi add-ons · Docker apps</p>
+        <h1 id="hero-h">Add-ons and apps for a tidier media centre.</h1>
+        <p class="lede">Open-source projects by jonnypuma: the Aeon Fuse skin, Skippy and more add-ons for Kodi, and Curator and other self-hosted apps that look after the library behind them.</p>
+        <div class="actions">
+          <a class="btn primary" href="#install">Install the Kodi repository</a>
+          <a class="btn" href="#aeon">Browse the projects</a>
+        </div>
+      </div>
+      <div class="screen" id="screen" aria-roledescription="carousel" aria-label="Screenshots from the projects">
+        <div class="screen-frame" id="screen-frame"></div>
+        <div class="screen-bar">
+          <a class="screen-cap" id="screen-cap" href="#/skin.aeon.fuse"></a>
+          <div class="screen-dots" id="screen-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="aeon" aria-labelledby="aeon-band-h">
+      <div class="flagship" id="band-aeon"></div>
+      <div class="strip" id="aeon-strip" tabindex="0" aria-label="Aeon Fuse screenshots, scroll sideways"></div>
+      <div class="grid" id="grid-aeon"></div>
+    </section>
+
+    <section class="block" id="skippy" aria-labelledby="kodi-band-h">
+      <div class="flagship" id="band-skippy"></div>
+    </section>
+
+    <section class="block" id="curator" aria-labelledby="docker-band-h">
+      <div class="flagship" id="band-curator"></div>
+    </section>
+
+    <section class="block" id="kodi" aria-labelledby="kodi-h">
+      <div class="block-head">
+        <p class="eyebrow">For Kodi</p>
+        <h2 id="kodi-h">More Kodi add-ons</h2>
+        <p class="sub">Services and scripts that install from the Skippy Repo and update themselves from there.</p>
+      </div>
+      <div class="grid" id="grid-kodi"></div>
+    </section>
+
+    <section class="block" id="docker" aria-labelledby="docker-h">
+      <div class="block-head">
+        <p class="eyebrow">Self-hosted</p>
+        <h2 id="docker-h">More Docker apps</h2>
+        <p class="sub">Web apps that run in a container next to your media. Each builds from its repository with Docker Compose.</p>
+      </div>
+      <div class="grid" id="grid-docker"></div>
+    </section>
+
+    <section class="block install" id="install" aria-labelledby="install-h">
+      <div class="install-art"><img src="assets/repository.skippyrepo/icon.webp" width="320" height="320" alt="" loading="lazy"></div>
+      <div class="install-body">
+        <p class="eyebrow">Skippy Repo <span class="chip" id="repo-ver">1.0.4</span></p>
+        <h2 id="install-h">Install the Kodi repository</h2>
+        <p class="sub">Install the repository once. Kodi then lists the add-ons under Install from repository and keeps them up to date.</p>
+        <ol class="steps">
+          <li>In Kodi, open <b>Settings › System › Add-ons</b> and allow <b>Unknown sources</b>.</li>
+          <li>Open <b>Settings › File manager › Add source</b> and enter this address:
+            <div class="copy">
+              <code id="src-url">https://jonnypuma.github.io/repository.skippyrepo/</code>
+              <button type="button" class="btn small" data-copy="#src-url">Copy</button>
+            </div>
+          </li>
+          <li>Open <b>Add-ons › Install from zip file</b>, pick that source and choose <b>repository.skippyrepo.zip</b>.</li>
+          <li>Open <b>Add-ons › Install from repository › Skippy Repo</b> and install what you need.</li>
+        </ol>
+        <p class="alt">Or download the zip and install it from a USB stick or a network share:
+          <a id="repo-zip" href="https://raw.githubusercontent.com/jonnypuma/repository.skippyrepo/main/zips/repository.skippyrepo/repository.skippyrepo-1.0.4.zip">repository.skippyrepo-1.0.4.zip</a>
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= DETAIL ================= -->
+  <article id="detail" hidden></article>
+
+  <noscript>
+    <section class="block">
+      <h2>Projects</h2>
+      <p>This page lists the projects with JavaScript. Without it, find them all on
+      <a href="https://github.com/jonnypuma?tab=repositories">github.com/jonnypuma</a>, and the Kodi repository zip at
+      <a href="https://jonnypuma.github.io/repository.skippyrepo/">jonnypuma.github.io/repository.skippyrepo</a>.</p>
+    </section>
+  </noscript>
+</main>
+
+<footer class="foot">
+  <p>All projects are open source on <a href="https://github.com/jonnypuma">github.com/jonnypuma</a>. Each project page names its licence.</p>
+  <p class="dim">Independent projects, not affiliated with the Kodi Foundation. Screenshots show the projects running with the author's own library.</p>
+</footer>
+
+<dialog id="lightbox" aria-label="Screenshot">
+  <button type="button" class="lb-btn lb-close" aria-label="Close">×</button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Previous screenshot">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="lb-btn lb-next" aria-label="Next screenshot">›</button>
+</dialog>
+
+<script src="js/projects.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
