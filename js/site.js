@@ -67,7 +67,7 @@
       <p class="eyebrow">${eyebrow} ${verChip(p)}</p>
       <div class="flag-title"><img src="${A(p.id + "/icon.webp")}" alt="" width="84" height="84"><h2 id="${p.group}-band-h">${esc(p.name)}</h2></div>
       <p class="sub">${esc(p.tagline)}</p>
-      <ul>${p.features.slice(0, 4).map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
+      <ul>${(p.highlights || p.features.slice(0, 4)).map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
       <div class="actions"><a class="btn primary" href="#/${p.id}">${cta}</a><a class="btn" href="${GH}${p.id}" rel="noopener">GitHub</a></div>
     </div>
     <div class="flag-shots">
