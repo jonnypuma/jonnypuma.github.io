@@ -122,6 +122,7 @@
     return out.join("");
   }
   function installPanel(p) {
+    if (p.steps) return `<div class="panel"><h2>Install</h2><ol>${p.steps.map((x) => `<li>${esc(x)}</li>`).join("")}</ol></div>`;
     if (p.run) return `<div class="panel"><h2>Run it</h2><ol>${p.run.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></div>`;
     if (p.inRepo) return `<div class="panel"><h2>Install</h2><ol>
         <li>Install the <a href="#install" data-home>Skippy Repo</a> in Kodi.</li>
@@ -145,7 +146,7 @@
   }
   function detail(p) {
     /* fanart that carries the add-on's own name would repeat the title behind it */
-    const named = ["service.audio.enforcer", "service.subtitle.enforcer", "script.ratings.updatarr", "skin.aeon.fuse", "script.aeon.helper", "screensaver.aeon.fuse"];
+    const named = ["service.audio.enforcer", "service.subtitle.enforcer", "script.ratings.updatarr", "skin.aeon.fuse", "script.aeon.helper", "screensaver.aeon.fuse", "visualization.aeonwave"];
     const bg = named.includes(p.id) ? "" : hasFanart(p) ? A(p.id + "/fanart.webp") : p.shots.length ? A(p.shots[0][0]) : "";
     const facts = [...p.facts];
     if (p.license) facts.push(["Licence", p.license]);
