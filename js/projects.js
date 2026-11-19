@@ -44,8 +44,8 @@ const PROJECTS = [
     ],
     shots: [
       ["service.skippy/skip-states.webp", "Skip dialog during an intro: time left, next jump line, Skip and Close"],
-      ["service.skippy/skip-looks.webp", "Skip dialog layouts in six of the looks"],
-      ["service.skippy/skip-minimal.webp", "Minimal skip dialog forms"],
+      ["service.skippy/skip-looks.webp", "Six drawn designs in six of Skippy's own looks: Stack Luxe, Slab Neon, Dial Ocean, Band Paper, Split Sunset, Rail Terminal"],
+      ["service.skippy/skip-minimal.webp", "Six drawn Minimal forms: Stack, Slab, Dial, Band, Float, Split"],
       ["service.skippy/studio-look.webp", "Skip dialog Studio: the Look tab with a live preview"],
       ["service.skippy/studio-layout.webp", "Skip dialog Studio: layout, position and size"],
       ["service.skippy/studio-presets.webp", "Preset wall: layouts in the Fused Glass and Aeon looks"],
