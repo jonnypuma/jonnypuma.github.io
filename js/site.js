@@ -117,7 +117,8 @@
     if (p.inRepo) out.push(`<a class="btn primary" href="#install" data-home>Install from the Skippy Repo</a>`);
     if (!p.noGithub) out.push(`<a class="btn${p.inRepo ? "" : " primary"}" href="${GH}${p.id}" rel="noopener">GitHub repository</a>`);
     if (p.releases) out.push(`<a class="btn" href="${GH}${p.id}/releases" rel="noopener">Releases</a>`);
-    if (p.inRepo) out.push(`<a class="btn" href="${REPO_TREE}${p.id}" rel="noopener">Zip files</a>`);
+    if (p.inRepo && p.builds) p.builds.forEach(([id, label]) => out.push(`<a class="btn" href="${REPO_TREE}${id}" rel="noopener">Zip: ${esc(label)}</a>`));
+    else if (p.inRepo) out.push(`<a class="btn" href="${REPO_TREE}${p.id}" rel="noopener">Zip files</a>`);
     if (!p.noGithub) out.push(`<a class="btn" href="${GH}${p.id}#readme" rel="noopener">Full README</a>`);
     return out.join("");
   }
@@ -150,7 +151,7 @@
     const bg = named.includes(p.id) ? "" : hasFanart(p) ? A(p.id + "/fanart.webp") : p.shots.length ? A(p.shots[0][0]) : "";
     const facts = [...p.facts];
     if (p.license) facts.push(["Licence", p.license]);
-    if (p.group !== "docker") facts.push(["Add-on id", p.id]);
+    if (p.group !== "docker") facts.push(p.ids ? ["Add-on ids", p.ids.join(", ")] : ["Add-on id", p.id]);
     const others = PROJECTS.filter((o) => o.group === p.group && o.id !== p.id).slice(0, 3);
     return `
     <div class="d-hero">${bg ? `<img class="bg" src="${bg}" alt="">` : ""}

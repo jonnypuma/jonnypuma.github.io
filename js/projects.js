@@ -373,14 +373,22 @@ const PROJECTS = [
     kind: "Kodi visualisation",
     version: "1.5.2",
     license: "GPL-2.0-or-later",
-    inRepo: false,
+    inRepo: true,
+    releases: true,
+    ids: ["visualization.aeonwave.linux-arm64", "visualization.aeonwave.linux-armv7", "visualization.aeonwave.linux-x86_64", "visualization.aeonwave.windows-x64"],
+    builds: [
+      ["visualization.aeonwave.linux-arm64", "Linux ARM64"],
+      ["visualization.aeonwave.linux-armv7", "Linux ARM 32-bit"],
+      ["visualization.aeonwave.linux-x86_64", "Linux x86-64"],
+      ["visualization.aeonwave.windows-x64", "Windows x64"],
+    ],
     tagline: "One thin waveform line, made for the Aeon Fuse Now playing card.",
     about: [
       "A calm, thin audio waveform for the Aeon Fuse Now playing screen. It is Kodi's own Waveform visualisation (by MrC and Team Kodi, visualization.waveform 22.1.1) reworked to sit cleanly in the skin's waveform box instead of filling it with spikes.",
       "It draws one channel (left or right), both mixed, both overlaid, or both as two lines, as a line through the middle of its box, of the same thin width on flat and steep strokes.",
       "Each point is the average of the audio it covers, smoothed with its neighbours and the frame before, and drawn as a smooth curve, so the line stays calm.",
     ],
-    note: "The Aeon Fuse skin draws it in its own box on the Now playing card; other skins show it full screen like any visualisation.",
+    note: "One add-on per platform, because Kodi cannot tell the three Linux builds apart: install the one for your device. The Aeon Fuse skin draws it in its own box on the Now playing card; other skins show it full screen like any visualisation.",
     features: [
       "One clean line, the same thin width on flat and steep passages (the stock Waveform turns thick and blocky on loud music on CoreELEC / LibreELEC boxes)",
       "Smoothness 0 to 10: 0 is the raw samples, exactly as Waveform draws them; 10 is the calmest",
@@ -389,8 +397,9 @@ const PROJECTS = [
       "Settings translated into the Aeon Fuse skin's 22 languages",
     ],
     steps: [
-      "Install the zip for your platform: Add-ons > Install from zip file (allow unknown sources first).",
-      "Enable it, then choose it in Settings > Player > Music > Visualisation.",
+      "Install the Skippy Repo in Kodi (see Install the Kodi repository on the home page).",
+      "Open Add-ons > Install from repository > Skippy Repo > Visualisations and install the build for your device: Linux ARM64, Linux ARM 32-bit, Linux x86-64 or Windows x64.",
+      "Choose it in Settings > Player > Music > Visualisation.",
       "Open Now playing again.",
     ],
     facts: [
