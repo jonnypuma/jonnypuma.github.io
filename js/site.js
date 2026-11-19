@@ -57,8 +57,11 @@
     if (!b) return;
     lbOpen(byId[b.dataset.pid].shots, +b.dataset.shot, b);
   });
+  /* pictures under /aeon/ have an 800 px thumbnail in /aeon/t/; the lightbox loads the full one */
+  const thumb = (path) => (path.includes("/aeon/") ? path.replace(/([^/]+)$/, "t/$1") : path);
   const shotBtn = (p, i, cls = "shot") =>
-    `<button type="button" class="${cls}" data-pid="${p.id}" data-shot="${i}" aria-label="Enlarge: ${esc(p.shots[i][1])}"><img src="${A(p.shots[i][0])}" alt="${esc(p.shots[i][1])}" loading="lazy"></button>`;
+    `<button type="button" class="${cls}" data-pid="${p.id}" data-shot="${i}" aria-label="Enlarge: ${esc(p.shots[i][1])}"><img src="${A(thumb(p.shots[i][0]))}" alt="${esc(p.shots[i][1])}" loading="lazy"></button>`;
+  const idx = (p, name) => p.shots.findIndex((s) => s[0].includes("/" + name + "."));
 
   /* ---------- feature bands: Aeon Fuse (flagship), then Skippy, then Curator ---------- */
   function band(p, eyebrow, big, small, cta) {
@@ -76,16 +79,19 @@
     </div>`;
   }
   const skin = byId["skin.aeon.fuse"], sk = byId["service.skippy"];
-  $("#band-aeon").innerHTML = band(skin, "Flagship · Kodi skin", 3, [1, 6], "About Aeon Fuse");
+  $("#band-aeon").innerHTML = band(skin, "Flagship · Kodi skin", idx(skin, "aeon_movies_list"), [idx(skin, "fg_shows_523"), idx(skin, "music_home_nowplaying")], "About Aeon Fuse");
   $("#band-skippy").innerHTML = band(sk, "Kodi service", 6, [0, 11], "About Skippy");
   const cur = byId["curator"];
   $("#band-curator").innerHTML = band(cur, "Docker app", 1, [0], "About Curator");
-  $("#aeon-strip").innerHTML = skin.shots.map((_, i) => shotBtn(skin, i)).join("");
+  $("#aeon-strip").innerHTML = skin.strip.map((n) => shotBtn(skin, idx(skin, n))).join("");
 
   /* ---------- hero screen ---------- */
   const slides = [
-    ["skin.aeon.fuse", 0], ["service.skippy", 9], ["skin.aeon.fuse", 2], ["kodi-nowplaying-multi", 1], ["curator", 1], ["skin.aeon.fuse", 6],
-  ].map(([id, i]) => ({ p: byId[id], src: A(byId[id].shots[i][0]), cap: byId[id].shots[i][1] }));
+    ["skin.aeon.fuse", "aeon_movies_list"], ["service.skippy", 9], ["skin.aeon.fuse", "fg_movies_520"], ["kodi-nowplaying-multi", 1], ["curator", 1], ["skin.aeon.fuse", "music_strip_player"],
+  ].map(([id, k]) => {
+    const p = byId[id], i = typeof k === "number" ? k : idx(p, k);
+    return { p, src: A(p.shots[i][0]), cap: p.shots[i][1] };
+  });
   const frame = $("#screen-frame"), dots = $("#screen-dots"), cap = $("#screen-cap");
   frame.innerHTML = slides.map((s, i) => `<img src="${s.src}" alt="${i ? "" : esc(s.p.name + ": " + s.cap)}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} width="1600" height="900">`).join("");
   dots.innerHTML = slides.map((s, i) => `<button type="button" aria-label="Show screenshot ${i + 1}: ${esc(s.p.name)}"></button>`).join("");
@@ -123,6 +129,20 @@
         <li>Choose ${esc(p.name)} and install.</li></ol></div>`;
     return `<div class="panel"><h2>Install</h2><p class="alt">Not in the Skippy Repo yet. The source is on GitHub.</p></div>`;
   }
+  /* a project whose shots carry a group name (third item) gets one heading per group */
+  function gallery(p) {
+    if (!p.shots[0][2]) return `<div class="gallery">${p.shots.map((_, i) => shotBtn(p, i)).join("")}</div>`;
+    let out = "", cur = null;
+    p.shots.forEach((s, i) => {
+      if (s[2] !== cur) {
+        if (cur !== null) out += "</div>";
+        cur = s[2];
+        out += `<h3 class="gal-h">${esc(cur)}</h3><div class="gallery">`;
+      }
+      out += shotBtn(p, i);
+    });
+    return out + "</div>";
+  }
   function detail(p) {
     /* fanart that carries the add-on's own name would repeat the title behind it */
     const named = ["service.audio.enforcer", "service.subtitle.enforcer", "script.ratings.updatarr", "skin.aeon.fuse", "script.aeon.helper", "screensaver.aeon.fuse"];
@@ -147,9 +167,7 @@
         ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
         ${p.features.length ? `<h2>Features</h2><ul>${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
         <h2>Screenshots</h2>
-        ${p.shots.length
-          ? `<div class="gallery">${p.shots.map((_, i) => shotBtn(p, i)).join("")}</div>`
-          : `<p class="empty">No screenshots of ${esc(p.name)} yet.</p>`}
+        ${p.shots.length ? gallery(p) : `<p class="empty">No screenshots of ${esc(p.name)} yet.</p>`}
       </div>
       <aside class="side" aria-label="Install and links">
         ${installPanel(p)}

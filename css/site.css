@@ -176,6 +176,7 @@ dl.facts { margin: 0; display: grid; gap: 12px; font-size: 15px; }
 dl.facts dt { color: var(--muted); font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; }
 dl.facts dd { margin: 2px 0 0; overflow-wrap: anywhere; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.gal-h { margin: 22px 0 -2px; font-size: 16px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
 .gallery .shot img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
 .empty { color: var(--muted); font-size: 15px; padding: 16px 18px; border: 1px dashed var(--line-2); border-radius: 14px; }
 .d-more { padding-top: 56px; display: grid; gap: 20px; }
