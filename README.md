@@ -9,8 +9,3 @@ A static page (plain HTML, CSS and JavaScript, no build step) that presents the 
   `addons.xml`; the versions in `projects.js` are the fallback.
 - `assets/<project id>/`: icon, fanart and screenshots, copied from each project and saved as WebP.
 
-Preview locally:
-
-    python -m http.server 8793
-
-then open <http://localhost:8793>.
