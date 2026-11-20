@@ -174,6 +174,38 @@ const PROJECTS = [
     shots: [],
   },
   {
+    id: "script.versions.updatarr",
+    group: "kodi",
+    name: "Video Versions Updatarr",
+    kind: "Kodi script",
+    version: "0.1.9",
+    license: "MIT",
+    inRepo: true,
+    releases: true,
+    tagline: "Automatically update and assign Kodi Video Versions from NFO files and filenames directly in the database.",
+    about: [
+      "Kodi v21+ Video Versions does not yet import version names from NFO files or filenames during library scans. Video Versions Updatarr fills this gap by reading <videoassettitle> and <edition> NFO tags, or filename edition patterns (for example 50th Anniversary Edition), automatically adding custom version types and updating the videoversion database table.",
+      "It works with Kodi 21 Omega and Kodi 22 Piers, on both SQLite and MariaDB / MySQL, with automatic configuration detection.",
+    ],
+    features: [
+      "Movies and TV episodes: detects, creates and assigns video versions for both, including alternate episode cuts such as Extended or Unrated",
+      "Default version swapping: choose which file is the default for a multi-version movie or episode, optionally copying the watched status to it",
+      "Context menu: Manage > Update Video Version (Updatarr) on any movie or episode",
+      "Automatic database detection: reads advancedsettings.xml; MariaDB / MySQL or SQLite; PyMySQL is bundled",
+      "Backups first: a full backup before any update or swap, at least 3 kept (up to 20), an on-demand backup button and one-click restore",
+      "Dry run mode: preview every planned change before anything is modified",
+      "Normalize version labels in the database, for example DIRECTORS_CUT to Director's Cut",
+      "Optional background scheduler, and a hook that runs after a library scan",
+      "Safe selective updates: only versions set to Standard Edition or unassigned are changed; custom editions are kept (configurable)",
+    ],
+    facts: [
+      ["Needs", "Kodi 21 Omega or Kodi 22 Piers"],
+      ["Databases", "SQLite, and MariaDB / MySQL"],
+    ],
+    shots: [],
+  },
+
+  {
     id: "script.texture.cache",
     group: "kodi",
     name: "Texture Cache Utility",
@@ -373,7 +405,6 @@ const PROJECTS = [
     version: "1.5.2",
     license: "GPL-2.0-or-later",
     inRepo: true,
-    releases: true,
     ids: ["visualization.aeonwave.linux-arm64", "visualization.aeonwave.linux-armv7", "visualization.aeonwave.linux-x86_64", "visualization.aeonwave.windows-x64"],
     builds: [
       ["visualization.aeonwave.linux-arm64", "Linux ARM64"],
