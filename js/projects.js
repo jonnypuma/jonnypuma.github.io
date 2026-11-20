@@ -493,8 +493,10 @@ const PROJECTS = [
       "Poster grid view and poster badges, a phone-friendly layout, and keyboard shortcuts",
     ],
     run: [
-      "Copy docker-compose.yml.example to docker-compose.yml, and .env.example to .env. Set MUSIC_PATH, MOVIES_PATH, and TV_PATH to the host folders.",
-      "docker compose up -d",
+      "Install Docker with Compose and Git, then clone https://github.com/jonnypuma/curator.git and open the folder.",
+      "Copy docker-compose.yml.example to docker-compose.yml, and .env.example to .env.",
+      "In .env set MUSIC_PATH, MOVIES_PATH and TV_PATH to your library folders. They must already exist.",
+      "Run: docker compose up -d. The first start builds the image, so it takes a few minutes.",
       "Open http://<host>:4455. On a new install the setup wizard opens by itself.",
     ],
     facts: [],

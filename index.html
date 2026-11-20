@@ -105,6 +105,30 @@
         </p>
       </div>
     </section>
+
+    <section class="block install" id="run-curator" aria-labelledby="run-h">
+      <div class="install-art"><img src="assets/curator/icon.webp" width="320" height="320" alt="" loading="lazy"></div>
+      <div class="install-body">
+        <p class="eyebrow">Curator &middot; Docker</p>
+        <h2 id="run-h">Run Curator with Docker</h2>
+        <p class="sub">Curator builds from its repository with Docker Compose and starts with its own PostgreSQL database. You need Docker with Compose and Git.</p>
+        <ol class="steps">
+          <li>Get the code:
+            <div class="copy"><code id="cur-clone">git clone https://github.com/jonnypuma/curator.git &amp;&amp; cd curator</code><button type="button" class="btn small" data-copy="#cur-clone">Copy</button></div>
+          </li>
+          <li>Make your own copies of the two example files:
+            <div class="copy"><code id="cur-cp">cp docker-compose.yml.example docker-compose.yml &amp;&amp; cp .env.example .env</code><button type="button" class="btn small" data-copy="#cur-cp">Copy</button></div>
+          </li>
+          <li>Open <b>.env</b> and set <b>MUSIC_PATH</b>, <b>MOVIES_PATH</b> and <b>TV_PATH</b> to your library folders. The folders must already exist.</li>
+          <li>Start it. The first start builds the image, so it takes a few minutes:
+            <div class="copy"><code id="cur-up">docker compose up -d</code><button type="button" class="btn small" data-copy="#cur-up">Copy</button></div>
+          </li>
+          <li>Open <b>http://&lt;host&gt;:4455</b>. On a new install the setup wizard opens by itself and takes you to the first scan.</li>
+        </ol>
+        <p class="alt">On Windows use <code>copy</code> instead of <code>cp</code>. Curator keeps its settings in the <b>config</b> and <b>data</b> folders next to the compose file, so keep them in your backups.
+          <a href="#/curator">About Curator</a> &middot; <a href="https://github.com/jonnypuma/curator#running" rel="noopener">Full instructions</a></p>
+      </div>
+    </section>
   </div>
 
   <!-- ================= DETAIL ================= -->
