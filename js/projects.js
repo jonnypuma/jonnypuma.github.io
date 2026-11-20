@@ -405,6 +405,7 @@ const PROJECTS = [
     version: "1.5.2",
     license: "GPL-2.0-or-later",
     inRepo: true,
+    extraLinks: [["Source and build script", "https://github.com/jonnypuma/visualization.aeonwave/tree/main/source"]],
     ids: ["visualization.aeonwave.linux-arm64", "visualization.aeonwave.linux-armv7", "visualization.aeonwave.linux-x86_64", "visualization.aeonwave.windows-x64"],
     builds: [
       ["visualization.aeonwave.linux-arm64", "Linux ARM64"],
@@ -417,6 +418,7 @@ const PROJECTS = [
       "A calm, thin audio waveform for the Aeon Fuse Now playing screen. It is Kodi's own Waveform visualisation (by MrC and Team Kodi, visualization.waveform 22.1.1) reworked to sit cleanly in the skin's waveform box instead of filling it with spikes.",
       "It draws one channel (left or right), both mixed, both overlaid, or both as two lines, as a line through the middle of its box, of the same thin width on flat and steep strokes.",
       "Each point is the average of the audio it covers, smoothed with its neighbours and the frame before, and drawn as a smooth curve, so the line stays calm.",
+      "The source (the shared waveform code, OpenGL / OpenGL ES drawing for Linux and DirectX 11 drawing for Windows) and the script that builds all four platforms are in the GitHub repository.",
     ],
     note: "One add-on per platform, because Kodi cannot tell the three Linux builds apart: install the one for your device. The Aeon Fuse skin draws it in its own box on the Now playing card; other skins show it full screen like any visualisation.",
     features: [

@@ -116,6 +116,7 @@
     const out = [];
     if (p.inRepo) out.push(`<a class="btn primary" href="#install" data-home>Install from the Skippy Repo</a>`);
     if (!p.noGithub) out.push(`<a class="btn${p.inRepo ? "" : " primary"}" href="${GH}${p.id}" rel="noopener">GitHub repository</a>`);
+    (p.extraLinks || []).forEach(([label, url]) => out.push(`<a class="btn" href="${url}" rel="noopener">${esc(label)}</a>`));
     if (p.releases) out.push(`<a class="btn" href="${GH}${p.id}/releases" rel="noopener">Releases</a>`);
     if (p.inRepo && p.builds) p.builds.forEach(([id, label]) => out.push(`<a class="btn" href="${REPO_TREE}${id}" rel="noopener">Zip: ${esc(label)}</a>`));
     else if (p.inRepo) out.push(`<a class="btn" href="${REPO_TREE}${p.id}" rel="noopener">Zip files</a>`);
