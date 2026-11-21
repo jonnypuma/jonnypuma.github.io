@@ -244,7 +244,7 @@ const PROJECTS = [
     kind: "Kodi skin",
     version: "0.56.53",
     license: "GPL-2.0-or-later",
-    inRepo: false,
+    inRepo: true,
     tagline: "The look of Aeon 2 with ideas from Arctic Fuse, built on the Glass skin.",
     about: [
       "This skin is an attempt to merge the design ideas and style of the Aeon 2 concept skin with design elements and ideas from the Arctic Fuse 3 skin. Work in progress.",
@@ -359,7 +359,7 @@ const PROJECTS = [
     kind: "Kodi script",
     version: "0.3.114",
     license: "GPL-2.0-or-later",
-    inRepo: false,
+    inRepo: true,
     tagline: "The helper add-on of the Aeon Fuse skin. The skin requires it.",
     about: [
       "It works out what a Kodi skin cannot do in XML and hands the results to the skin, mostly as Window(Home) properties and skin strings. Under another skin its service does nothing.",
@@ -381,7 +381,7 @@ const PROJECTS = [
     kind: "Kodi screensaver",
     version: "1.3.0",
     license: "GPL-2.0-or-later",
-    inRepo: false,
+    inRepo: true,
     tagline: "Random movies, TV shows and albums from your library, in the Aeon Fuse look.",
     about: [
       "The screensaver shows random films, TV shows and albums from your library in the skin's own screensaver window. Under another skin it shows a black screen.",
